@@ -5,12 +5,14 @@ import java.util.List;
 
 public class Launcher {
 
+	private static final int ZERO_POINT_DE_VIE = 0;
+
 	public static void main(String[] args) {
 		
 		Chevaliers fred = new Chevaliers("Martin", "Frederic", "Duc", 47, 100, 100);
 		Chevaliers chris = new Chevaliers("Dupont", "Christophe", "LeToutPuissant", 26, 100, 100);
 		Ecuyers yann = new Ecuyers("Henri","Yann", 30, 100, 100);
-		Dragons feu = new Dragons("Feu", 100);
+		Dragons feu = new Dragons("Feu", 300);
 		
 		List<Chevaliers> listeChevaliers = new ArrayList<Chevaliers>();
 	
@@ -21,21 +23,24 @@ public class Launcher {
 			listeChevaliers.get(i).afficher();
 		}
 		
+		System.out.println("Le Dragon : " + feu.getNom() + ", possède : " + feu.getPointsDevie() + " point(s) de vie !");
+		
 		while(feu.getPointsDevie() > 0) {
 			
-			if(feu.getPointsDevie() > 0) {
-				System.out.println(fred.getPrenom() + " tape le Dragon");
-				feu.setPointsDevie(feu.getPointsDevie() - fred.getPointsDAttaque());
-				System.out.println("Le Dragon possède : " + feu.getPointsDevie() + " de vie !");
+			for(int i = 0 ; i < listeChevaliers.size() ; i++) {
+				if(feu.getPointsDevie() > 0) {
+					System.out.println(listeChevaliers.get(i).getPrenom() + " tape le Dragon");
+					feu.setPointsDevie(feu.getPointsDevie() - listeChevaliers.get(i).getPointsDAttaque());
+					System.out.println("Le Dragon possède : " + feu.getPointsDevie() + " de vie !");
+					if(feu.getPointsDevie() == ZERO_POINT_DE_VIE) {
+						System.out.println("Le Dragon : " + feu.getNom() + " est mort !!!");
+					}
+				}
 			}
 			
-			if(feu.getPointsDevie() > 0) {
-				System.out.println(chris.getPrenom() + " tape le Dragon");
-				feu.setPointsDevie(feu.getPointsDevie() - chris.getPointsDAttaque());
-				System.out.println("Le Dragon possède : " + feu.getPointsDevie() + " de vie !");
+			for (Chevaliers chevaliers : listeChevaliers) {
+				System.out.println(chevaliers.getPrenom());
 			}
 		}
-		
 	}
-
 }

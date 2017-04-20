@@ -2,8 +2,8 @@ package packChevaliersMonstres;
 
 public class Dragons {
 
-	String nom;
-	int pointsDevie;
+	private String nom;
+	private int pointsDevie;
 	
 	public Dragons() {
 		super();

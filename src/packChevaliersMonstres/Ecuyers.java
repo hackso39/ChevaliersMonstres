@@ -2,11 +2,11 @@ package packChevaliersMonstres;
 
 public class Ecuyers {
 	
-	String nom;
-	String prenom;
-	int age;
-	int pointsDeVie;
-	int pointsDAttaque;
+	private String nom;
+	private String prenom;
+	private int age;
+	private int pointsDeVie;
+	private int pointsDAttaque;
 
 	public Ecuyers() {
 		super();
